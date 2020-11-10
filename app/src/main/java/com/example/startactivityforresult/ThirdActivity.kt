@@ -14,7 +14,7 @@ class ThirdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second)
+        setContentView(R.layout.activity_third)  // updated
         Log.d("DL", "ThirdActivity...in onCreate()")
 
         // Put values into the intent to be sent back to the
