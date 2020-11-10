@@ -49,6 +49,15 @@ class MainActivity : AppCompatActivity() {
                     Log.d("DL","$x,")
             }
 
+            val list = data?.getStringArrayListExtra("names")
+            if (list != null) {
+                for(name in list)
+                    Log.d("DL","$name")
+            }
+            //TODO
+            // retrieve the array of strings and display in Log
+
+
             // Do something with the data
             // e.g. put it in a TextView or ImageView
         }

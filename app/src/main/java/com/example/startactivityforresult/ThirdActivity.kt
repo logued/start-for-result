@@ -7,6 +7,7 @@ package com.example.startactivityforresult
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -16,6 +17,12 @@ class ThirdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)  // updated
         Log.d("DL", "ThirdActivity...in onCreate()")
+
+        val button: Button = findViewById(R.id.button_finished)
+        button.setOnClickListener {
+            finish()     // signal that this activity is finished and
+                         // the intent can be returned to the parent
+        }
 
         // Put values into the intent to be sent back to the
         // activity that started this activity (i.e. the parent)
@@ -35,9 +42,19 @@ class ThirdActivity : AppCompatActivity() {
 
         val arr = doubleArrayOf(1.11, 2.22, 3.33, 4.44, 5.55)
         intent.putExtra("nums", arr)
+
+        //TODO
+        // create an array of strings and return the array list as an extra in the Bundle
+        // In MainActivity - retrieve the array and print the strings.
+
+        val arrayList = ArrayList<String>()//Creating an empty arraylist
+        arrayList.add("Ajay")//Adding object in arraylist
+        arrayList.add("Vijay")
+        arrayList.add("Prakash")
+        arrayList.add("Rohan")
+        arrayList.add("Vijay")
+        intent.putStringArrayListExtra("names" , arrayList)
         setResult(RESULT_OK, intent)
-        finish() // signal that this activity is finished and
-                    // the intent can be returned to the parent
     }
 
 }
