@@ -12,6 +12,15 @@
         android:layout_height="wrap_content"
         android:onClick="startSecondActivity"
         android:text="Start Second Activity"
+        app:layout_constraintBottom_toTopOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Activity for Result"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
