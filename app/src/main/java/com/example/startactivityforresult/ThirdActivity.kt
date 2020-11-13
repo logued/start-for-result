@@ -44,17 +44,11 @@ class ThirdActivity : AppCompatActivity() {
         intent.putExtra("nums", arr)
 
         //TODO
-        // create an array of strings and return the array list as an extra in the Bundle
-        // In MainActivity - retrieve the array and print the strings.
+        // create and populate an ArrayList of strings and return the array list as an extra in the Bundle
+        // In MainActivity - retrieve the ArrayList and print the string values.
 
-        val arrayList = ArrayList<String>()//Creating an empty arraylist
-        arrayList.add("Ajay")//Adding object in arraylist
-        arrayList.add("Vijay")
-        arrayList.add("Prakash")
-        arrayList.add("Rohan")
-        arrayList.add("Vijay")
-        intent.putStringArrayListExtra("names" , arrayList)
-        setResult(RESULT_OK, intent)
+
+        setResult(RESULT_OK, intent)    // set intent result code to OK
     }
 
 }

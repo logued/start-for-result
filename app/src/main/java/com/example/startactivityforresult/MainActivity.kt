@@ -25,12 +25,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
 
-    //using the StartActivityForResult standard Contract
-    // register a lambda (block of code) to deal with the result when it returns from the
-    // called activity
+    // Using the Standard Contract "StartActivityForResult" (in Activity Result API)
+
+    // startForResult is a reference to the function registerForActivityResult.
+    // registerForActivityResult is initialized to use the standard contract "StartActivityForResult"
+    // which specifies an Intent as INput and an ActivityResult as OUTput.
+    // (So, when we launch it, we must provide an Intent, and we must provide a block of
+    // code to receive the returned ActivityResult)
+
     val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-    { result: ActivityResult ->
-        if (result.resultCode == Activity.RESULT_OK) {
+    { result: ActivityResult ->                             // declare name for the returned ActivityResult
+        if (result.resultCode == Activity.RESULT_OK) {      // check return code and process returned data
             val data = result.data  //  intent data
 
             val name = data?.getStringExtra("name")
@@ -70,6 +75,11 @@ class MainActivity : AppCompatActivity() {
         val startButton = findViewById(R.id.button_2) as Button
 
         startButton.setOnClickListener {
+            // .launch launches the function startForResult in a co-routine (like a thread).
+            // When the Activity result returns, the code to process the ActivityResult
+            // will be executed in the co-routine (thus, not blocking the main thread)
+            // The Intent supplied here, is the INput that the generic contract "StartActivityForResult" expects.
+            // The OUTput specified in the generic contract is the ActivityResult object that is returned.
             startForResult.launch(Intent(this, ThirdActivity::class.java))
         }
 
